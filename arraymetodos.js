@@ -6,7 +6,7 @@ let numeros = [-5,100,200,5.5]
 numeros.push(10)
 console.log(numeros)
 
-//recorriendo un alegro
+//recorriendo un arreglo
 numeros.forEach(function(numero){
     console.log(numero)
 })
