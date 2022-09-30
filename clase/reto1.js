@@ -5,7 +5,7 @@ let peliculas = [
     {nombre: 'Django sin cadenas' , genero: 'ciencia ficcion', costo: 2000},
     {nombre: 'el viaje de sohiyiro ' , genero: 'anime', costo: 60}
 ]
-/*
+
 let filtro = peliculas.filter(function(pelicula){
     return(pelicula.genero=='ciencia ficcion')
 })
@@ -14,6 +14,7 @@ console.log(filtro)
 filtro = peliculas.filter(pelicula => pelicula.genero=='ciencia ficcion')
 console.log(filtro)
 
+/*
 let filtroCosto = peliculas.filter(function(pelicula){
     return(pelicula.costo >= 2000)
 })
@@ -35,7 +36,7 @@ filtrarAnime = peliculas.filter =(pelicula => pelicula.genero ='anime')
 filtrarCosto = filtrarAnime.find = (costo => costo.costo == 3000)
 
 console.log(filtrarCosto)
-*/
+
 
 //funcion tradicional
 let mapa = peliculas.map(function(pelicula){
@@ -57,3 +58,4 @@ console.log(peliculas)
 mapaNombre = peliculas.map(pelicula => pelicula.nombre= 'gilma')
 console.log(peliculas)
 
+*/

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIENDA</title>
+
+<!--Bootstrap-->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<!--ANIMATED-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+<!--GOGOLE FONTS-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap" rel="stylesheet">
+<!--ESTILOS-->
+<link rel="stylesheet" href="estilos1.css">
+<!--PRODUCTOS DEL INDEX-->
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+<!--ICONOS DE BOOTSTRAP-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg animate__animated animate__backInLeft">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="index.html">Navbar</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse " id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="tienda.html">Tienda</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Acerca de</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link bi bi-cup-straw" href="#" id="botonCarrito">
+                     <span id="capsula" class="position-absolute top-10 start-10 translate-middle badge rounded-pill bg-danger invisible">
+                        99+
+                      </span>
+                </a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+                  Ingresa
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Ingresar</a></li>
+                  <li><a class="dropdown-item" href="#">Registrarse </a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Salir</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+</header>
+
+  <!--PRODUCTOS DE TIENDA-->
+    <main>
+        <div class="container">
+            <div class="row row-cols-1 row-cols-md-5 g-3" id="fila">
+
+                
+            </div>
+        </div>
+    
+    </main>
+      <!--MODAL DE TIENDA-->
+
+    <section>
+        <div class="modal fade" id="modalinfoproducto" tabindex="-1">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title"></h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-4">
+                                <img src="" alt="" class="img-fluid w-100" id="fotoinfo">
+                            </div>
+                            <div class="col-8">
+                                <h1 class="text-center" id="nombreinfo"></h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-4">
+                                <h6 class="text-center" id="precioinfo"></h6>
+                            </div>
+
+                            <div class="col-8" id="descrip" >
+                                <p class="text-muted" id="descripcioninfo"></p>
+                            </div>
+                            
+                            <div class="mb-3 col-3 justify">
+                              <label for="exampleInputPassword1" class="form-label">Cantidad</label>
+                              <input type="number" class="form-control" id="cantidadProducto" min="1" pattern="^[0-9]+" value="1" autofocus>
+                            </div>
+                        </div>                   
+                    </div>
+                </div>                               
+                
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                  <button id="botonAdd" type="button" class="btn btn-warning">Añadir al carrito</button>
+                  <button id="limpiar" type="button" class="btn btn-danger">Limpiar carrito</button>
+                </div>
+              </div>
+            </div>
+          </div>
+    </section>
+
+      <!--RESUMEN DE TIENDA-->
+
+    <section>
+      <div class="modal fade" id="resumenCarrito" tabindex="-1" >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">TIENDA DE COOLIES</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+              <div class="container" id="contenedorVenta">
+              </div>
+            <!--<div><h6 id="totalModal">Total</h6> </div>-->  
+            </div>
+
+            <!--CON BOTON SELECTED-->
+            
+            <div class="form-check" id="divisapesos">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="pesos" checked>
+              <label class="form-check-label" for="flexRadioDefault1">
+                pesos
+              </label>
+            </div>
+            <div class="form-check" id="divisadolar">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="dolar" >
+              <label class="form-check-label" for="flexRadioDefault2">
+                Dolares
+              </label>
+            </div>
+              <h5 id="totalModal">  </h5>
+      
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              <button type="button" class="btn btn-primary">Comprar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+          </section>
+
+
+
+ 
+
+
+   <!--FOOTER-->
+<section >
+  <footer>
+    <div class="container-fluid mt-5">
+
+      <div class="custom-shape-divider-top-1650315454">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+        </svg>
+     </div>
+
+     <div class="row">
+        <div class="col-md-4 col-sm-2 mt-5">
+          <div class=" mt-5">
+            <h2 class="productosTitulo">Acerca de</h2>  
+          </div>
+          <p>El objetivo es se basa en los 5 pilares de la experiencia del cliente y se ha creado para potenciar tanto a las empresas como a los consumidores. </p>
+        </div>
+
+        <div class="col-md-4 col-sm-2 mt-5">
+          <div class=" mt-5">
+            <h2>Contactanos</h2>
+          </div>
+            <ul>
+              <li>Telefono:<a href="333225511">(+57)319-323-6759</a></li>
+              <li>Email: <a href="email@email.com">mgilma018@gmail.com</a></li>
+              <li>Skype: <a href="skype:gilmalu">gilmalu:skype </a> </li>
+            </ul> 
+          </div>
+
+            <div class="col-4 col-md-2 col-sm-2 mt-5">
+              <div class=" mt-5">
+              <h2 class="titulofooter">Promociones</h4>
+              </div>
+                <ul class>
+                  <li><a href>Gift Card</a></li>
+                  <li><a href>Mas Vendidos</a></li>
+                  <li><a href>Acerca de </a></li>
+                  <li><a href>Guía de Latas<a href></a></li>
+                  <li><a href>Blogs</a></li>
+                </ul>
+            </div>
+      </div>
+
+      <hr>
+
+     <div class="container">
+      <div class="row">
+       <div class="col-6 col-md-6 col-sm-2 mt-5  ">
+         <h2 class="productosTitulo">Siguenos</h2>  
+           <ul class="col-6 iconos ">
+            <a href><i class="bi bi-youtube " ></i></a> 
+            <a href><i class="bi bi-pinterest"></i></a> 
+            <a href><i class="bi bi-linkedin"></i></a> 
+            <a href><i class="bi bi-instagram"></i></a> 
+            <a href><i class="bi bi-meta"></i></a> 
+             
+           </ul>
+       </div>
+
+        <div class="col-5 col-md-5 col-sm-2 mt-5">
+         <h3 class="productosTitulo">Suscribete y recibe un 8% de descuento</h3>
+             <form action="#">
+                 <div class="input-group col-md-1 col-sm-5">
+                 <input type="text" placeholder="youremail@mail.com" class="form-control">
+                   <span class="input-group-btn">
+                   <button class="btn btn-primary" type="submit">Subscribe</button>
+                   </span>
+                 </div>
+             </form>
+        </div>
+ 
+      </div>
+    </div>
+    </div>
+    
+  </footer>
+</section>
+
+<!--POSTFOOTER-->
+<section class="postfooter">
+    <h5>Derechos Reservados 2022®</h5>
+</section>
+
+<!--
+<script>
+//function convertir(){
+let valor= document.getElementById("moneda").value
+let resultado=document.getElementById("resultado")
+let dolar=4000
+//if(valor==1){
+resultado.textContent= "pesos pesos"
+//}
+//else {
+ resultado.textContent= "dolar dolar"
+//}
+//}
+</script>
+-->
+    <script src="js/controlador.js" type="module"></script>
+    <script src="https://kit.fontawesome.com/a5d068fb80.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>

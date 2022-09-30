@@ -38,9 +38,6 @@ info: function() {
 }
 
 }
-
-
-
 console.log(pelicula)
 
 let peliculaArray = Object.values(pelicula)
